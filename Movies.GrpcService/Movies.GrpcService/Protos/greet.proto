@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option csharp_namespace = "Movies.GrpcService";
+
+package topmovies;
+
+service Movies {
+	rpc GetTopMovies (TopMoviesRequest) returns (TopMoviesResponse);
+}
+
+message TopMoviesRequest {
+	int32 count = 1;
+}
+
+message TopMoviesResponse {
+	repeated Movie movies = 1;
+}
+
+message Movie {
+	string title = 1;
+	int32 year = 2;
+	string director = 3;
+}
